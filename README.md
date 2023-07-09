@@ -1,6 +1,6 @@
 # Threads.
 
-<img height="200" src="https://staticg.sportskeeda.com/editor/2023/07/9a80c-16886367720159-1920.jpg"></img>
+<img src="https://staticg.sportskeeda.com/editor/2023/07/9a80c-16886367720159-1920.jpg"></img>
 
 ## Description:
 The project aims to clone the Threads from Instagram social network in order to understand how this type of application could work, using Flutter framework & Firebase Database.
