@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "pre-commit": "^1.2.2"
+  },
+  "dependencies": {
+    "pre-push": "^0.1.4"
+  },
+  "scripts": {
+    "pre-commit": "echo \"Running pre-commit script\"",
+    "prepush": "cd .husky && ./pre-push",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run prepush"
+    }
+  }
+}
