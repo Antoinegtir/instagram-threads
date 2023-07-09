@@ -1,0 +1,48 @@
+name: threads
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.18.6 <3.0.0"
+
+dependencies:
+  animate_do: ^3.0.2
+  awesome_icons: ^1.1.0
+  cached_network_image: ^3.2.3
+  camera: ^0.10.5+2
+  contacts_service: ^0.6.3
+  cupertino_icons: ^1.0.2
+  equatable: ^2.0.5
+  firebase_analytics: ^10.1.6
+  firebase_auth: ^4.3.0
+  firebase_database: ^10.0.16
+  firebase_remote_config: ^3.0.15
+  firebase_storage: ^11.0.16
+  flutter:
+    sdk: flutter
+  flutter_local_notifications: ^5.0.0
+  flutter_native_splash: ^2.2.18
+  get_it: ^7.2.0
+  iconsax: ^0.0.8
+  image_cropper: ^4.0.1
+  image_picker: ^0.8.7
+  path: ^1.8.2
+  path_provider: ^2.0.14
+  permission_handler: ^10.2.0
+  provider: ^6.0.5
+  share_plus: ^7.0.2
+  shared_preferences: ^2.0.20
+  url_launcher: ^6.1.10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
