@@ -20,9 +20,7 @@ Follow Page         |  Privacy Page       |   Threads Page               |  Feed
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/follow.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/privacy.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/threads.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/feed.png?raw=true)|
 
-Profile Page
-:-------------------------:
-![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/profile.png?raw=true)|
+<img height="600" src="https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/profile.png?raw=true"></img
 
 ## Language & Tools used:
 
