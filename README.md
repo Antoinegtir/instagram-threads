@@ -8,7 +8,7 @@ This repository is use for educationnal content.
 
 ## 🚧 The project if not finished.
 
-The project is under construction activly developed.
+The project is under construction, activly developed, `feel free to star the project` if you want to support be and be notify to the major update of the construction of this social network.
 
 ## Screenshots
 
