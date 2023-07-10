@@ -1,25 +1,13 @@
-import 'package:animate_do/animate_do.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'package:threads/camera/camera.dart';
-import 'package:threads/model/post.dart';
-import 'package:threads/model/user.dart';
-import 'package:threads/pages/profile.dart';
 import 'package:threads/state/authState.dart';
 import 'package:threads/state/post.dart';
 import 'package:threads/state/searchState.dart';
-import 'package:threads/styles/color.dart';
 import 'package:threads/pages/myprofile.dart';
-import 'package:threads/widget/feedpost.dart';
-import 'package:threads/widget/gridpost.dart';
-import 'package:threads/widget/list.dart';
-import '../widget/custom/rippleButton.dart';
-import 'feed.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -160,10 +148,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         backgroundColor: Colors.black,
         appBar: AppBar(
           leading: Container(),
-          title: Image.asset(
-            "assets/thread.png",
-            height: 50,
-          ),
+          title: Lottie.network(
+              "https://assets3.lottiefiles.com/packages/lf20_Ht77kFLXYw.json",height: 50),
           toolbarHeight: 37,
           elevation: 0,
           backgroundColor: Colors.transparent,
