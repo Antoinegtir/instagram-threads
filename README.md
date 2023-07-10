@@ -10,6 +10,10 @@ This repository is use for educationnal content.
 
 The project is under construction, activly developed, `feel free to star the project` if you want to support me and be notify to the major update of the construction of this social network. This just the begining be patient!
 
+## 💡 Idea
+
+if you want to see in realtime the progression of the evolution of project, follow the link: https://github.com/users/Antoinegtir/projects/6
+
 ## Screenshots
 
 Onboard Page               |  Switch Page               | Config Page               |  Signup Page
