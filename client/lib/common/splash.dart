@@ -40,10 +40,7 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: Colors.black,
       body: state.authStatus == AuthStatus.NOT_LOGGED_IN
           ? const NamePage()
-          : MultiProvider(providers: [
-              ChangeNotifierProvider<ProfileState>(
-                  create: (_) => ProfileState(state.userId)),
-            ], child: HomePage()),
+          : HomePage(),
     );
   }
 }
