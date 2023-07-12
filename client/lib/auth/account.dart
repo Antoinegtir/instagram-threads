@@ -158,7 +158,7 @@ class _SwitchAccountState extends State<SwitchAccount> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
-                                  width: 20,
+                                  width: 30,
                                 ),
                                 Image.asset(
                                   "assets/pp.jpg",
