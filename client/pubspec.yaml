@@ -13,7 +13,6 @@ dependencies:
   awesome_icons: ^1.1.0
   cached_network_image: ^3.2.3
   camera: ^0.10.5+2
-  contacts_service: ^0.6.3
   cupertino_icons: ^1.0.2
   equatable: ^2.0.5
   firebase_analytics: ^10.1.6
