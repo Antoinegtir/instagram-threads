@@ -1,8 +1,6 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import 'package:threads/state/authState.dart';
 import 'package:threads/pages/settings.dart';
@@ -32,80 +30,24 @@ class _ProfilePageState extends State<MyProfilePage>
         backgroundColor: Colors.black,
         appBar: AppBar(
           actions: [
-            FadeIn(
-                duration: Duration(milliseconds: 1000),
-                child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SettingsPage()));
-                    },
-                    child: Icon(CupertinoIcons.list_bullet_indent,
-                        color: Colors.white)))
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SettingsPage()));
+                },
+                child: Icon(CupertinoIcons.list_bullet_indent,
+                    color: Colors.white))
           ],
-          leading: FadeIn(
-              duration: Duration(milliseconds: 1000),
-              child: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(CupertinoIcons.globe, color: Colors.white))),
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(CupertinoIcons.globe, color: Colors.white)),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
-        bottomNavigationBar: Container(
-            height: 150,
-            width: MediaQuery.of(context).size.width,
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Icon(
-                Iconsax.home,
-                size: 30,
-                color: Colors.white,
-              ),
-              Container(
-                width: 40,
-              ),
-              Icon(
-                Iconsax.search_normal,
-                size: 30,
-                color: Colors.white,
-              ),
-              Container(
-                width: 40,
-              ),
-              Icon(
-                Iconsax.edit,
-                size: 30,
-                color: Colors.white,
-              ),
-              Container(
-                width: 40,
-              ),
-              Icon(
-                Iconsax.heart,
-                size: 30,
-                color: Colors.white,
-              ),
-              Container(
-                width: 40,
-              ),
-              GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => MyProfilePage())));
-                  },
-                  child: Icon(
-                    CupertinoIcons.person_solid,
-                    size: 30,
-                    color: Colors.white,
-                  ))
-            ])),
         body: Center(
-            child: FadeInDown(
-                child: ListView(children: [
+            child: ListView(children: [
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: Column(
@@ -215,19 +157,26 @@ class _ProfilePageState extends State<MyProfilePage>
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                            height: 40,
-                            width: 170,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                color: Colors.grey,
-                                width: 0.5,
-                              ),
-                            ),
-                            alignment: Alignment.center,
-                            child: Text("Edit profile")),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => EditProfilePage()));
+                            },
+                            child: Container(
+                                height: 40,
+                                width: 170,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                    width: 0.5,
+                                  ),
+                                ),
+                                alignment: Alignment.center,
+                                child: Text("Edit profile"))),
                         Container(
                           width: 10,
                         ),
@@ -260,20 +209,17 @@ class _ProfilePageState extends State<MyProfilePage>
                         indicatorColor: Colors.white,
                         indicatorWeight: 1,
                         tabs: [
-                          FadeInUp(
-                              child: Padding(
-                                  padding: EdgeInsets.only(left: 20),
-                                  child: Tab(
-                                    child: Text(
-                                      'Threads',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ))),
-                          FadeInUp(
-                              child: Padding(
+                          Padding(
+                              padding: EdgeInsets.only(left: 20),
+                              child: Tab(
+                                  child: Text(
+                                'Threads',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ))),
+                          Padding(
                             padding: EdgeInsets.only(right: 0),
                             child: Tab(
                                 child: Text(
@@ -283,7 +229,7 @@ class _ProfilePageState extends State<MyProfilePage>
                                 fontWeight: FontWeight.w600,
                               ),
                             )),
-                          )),
+                          )
                         ],
                       ),
                     ),
@@ -314,6 +260,6 @@ class _ProfilePageState extends State<MyProfilePage>
                           )
                         ]))
                   ]))
-        ]))));
+        ])));
   }
 }
