@@ -24,7 +24,7 @@ Follow Page         |  Privacy Page       |   Threads Page               |  Feed
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/follow.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/privacy.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/threads.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/feed.png?raw=true)|
 
-Search Page         |  Profile Page       |   Threads Page               |  Feed Page
+Profile Page         |  Search Page       |   Threads Page               |  Feed Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/profile.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/search.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/threads.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/feed.png?raw=true)|
 
