@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:threads/model/post.dart';
+import 'package:threads/model/post.module.dart';
 
+// ignore: must_be_immutable
 class FeedPostWidget extends StatefulWidget {
   PostModel postModel;
   FeedPostWidget({required this.postModel, super.key});
@@ -20,23 +21,6 @@ class _FeedPostWidgetState extends State<FeedPostWidget> {
 
   @override
   Widget build(BuildContext context) {
-    String localisation;
-
-    DateTime now = DateTime.now();
-    DateTime createdAt = DateTime.parse(widget.postModel.createdAt);
-    Duration difference = now.difference(createdAt);
-
-    String timeAgo;
-
-    if (difference.inSeconds < 60) {
-      timeAgo = 'Il y a quelques secondes';
-    } else if (difference.inMinutes < 60) {
-      int minutes = difference.inMinutes;
-      timeAgo = 'Il y a $minutes minute${minutes > 1 ? 's' : ''}';
-    } else {
-      int hours = difference.inHours;
-      timeAgo = 'Il y a $hours heure${hours > 1 ? 's' : ''}';
-    }
     return Container(
         color: Colors.black,
         height: MediaQuery.of(context).size.height / 1.3,
