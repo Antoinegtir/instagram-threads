@@ -1,7 +1,9 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:threads/model/user.dart';
-import 'package:threads/pages/profile.dart';
+import 'package:threads/model/user.module.dart';
+import 'package:threads/pages/profile/profile.dart';
 import 'package:threads/widget/custom/title_text.dart';
 
 class UserTilePage extends StatelessWidget {
