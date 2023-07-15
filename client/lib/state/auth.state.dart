@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:threads/helper/enum.dart';
 import 'package:threads/helper/shared_prefrence_helper.dart';
 import 'package:threads/helper/utility.dart';
-import 'package:threads/model/user.dart';
-import 'package:threads/state/appState.dart';
+import 'package:threads/model/user.module.dart';
+import 'package:threads/state/app.state.dart';
 import '../common/locator.dart';
 import 'package:path/path.dart' as path;
 

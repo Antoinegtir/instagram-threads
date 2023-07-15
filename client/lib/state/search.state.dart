@@ -1,8 +1,8 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:threads/helper/enum.dart';
 import 'package:threads/helper/utility.dart';
-import 'package:threads/model/user.dart';
-import 'appState.dart';
+import 'package:threads/model/user.module.dart';
+import 'app.state.dart';
 
 class SearchState extends AppStates {
   bool isBusy = false;

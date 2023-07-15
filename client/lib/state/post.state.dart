@@ -2,9 +2,9 @@ import 'dart:async';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/firebase_database.dart' as dabase;
 import 'package:threads/helper/utility.dart';
-import 'package:threads/model/user.dart';
-import 'package:threads/state/appState.dart';
-import '../model/post.dart';
+import 'package:threads/model/user.module.dart';
+import 'package:threads/state/app.state.dart';
+import '../model/post.module.dart';
 
 class PostState extends AppStates {
   bool isBusy = false;
