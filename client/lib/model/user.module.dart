@@ -11,6 +11,7 @@ class UserModel extends Equatable {
   String? displayName;
   String? profilePic;
   String? createAt;
+  bool? isprivate;
   String? fcmToken;
   List<String>? followersList;
   List<String>? followingList;
@@ -22,6 +23,7 @@ class UserModel extends Equatable {
       this.link,
       this.bio,
       this.userId,
+      this.isprivate,
       this.displayName,
       this.profilePic,
       this.createAt,
@@ -37,6 +39,7 @@ class UserModel extends Equatable {
     email = map['email'];
     userId = map['userId'];
     userName = map['userName'];
+    isprivate = map['isprivate'];
     displayName = map['displayName'];
     link = map['link'];
     bio = map['bio'];
@@ -63,6 +66,7 @@ class UserModel extends Equatable {
       "userId": userId,
       "userName": userName,
       "bio": bio,
+      "isprivate": isprivate,
       "link": link,
       "email": email,
       'displayName': displayName,
@@ -85,6 +89,7 @@ class UserModel extends Equatable {
     String? link,
     String? key,
     String? fcmToken,
+    bool? isprivate,
     List<String>? followingList,
     List<String>? followersList,
   }) {
@@ -96,6 +101,7 @@ class UserModel extends Equatable {
       profilePic: profilePic ?? this.profilePic,
       createAt: createAt ?? this.createAt,
       bio: bio ?? this.bio,
+      isprivate: isprivate ?? this.isprivate,
       link: link ?? this.link,
       key: key ?? this.key,
       fcmToken: fcmToken ?? this.fcmToken,
@@ -111,6 +117,7 @@ class UserModel extends Equatable {
         bio,
         link,
         userName,
+        isprivate,
         userId,
         createAt,
         displayName,

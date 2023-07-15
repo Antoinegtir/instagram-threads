@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/src/widgets/basic.dart';
-import 'package:threads/model/user.dart';
+import 'package:threads/model/user.module.dart';
 
 class PostModel {
   String? key;
