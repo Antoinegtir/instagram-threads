@@ -3,11 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:threads/common/locator.dart';
 import 'package:threads/common/splash.dart';
-import 'package:threads/state/appState.dart';
-import 'package:threads/state/authState.dart';
+import 'package:threads/state/app.state.dart';
+import 'package:threads/state/auth.state.dart';
 import 'package:provider/provider.dart';
-import 'package:threads/state/post.dart';
-import 'package:threads/state/searchState.dart';
+import 'package:threads/state/post.state.dart';
+import 'package:threads/state/search.state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 List<CameraDescription> cameras = [];
