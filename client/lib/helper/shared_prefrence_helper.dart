@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../model/user.dart';
+import '../model/user.module.dart';
 
 class SharedPreferenceHelper {
   SharedPreferenceHelper._internal();

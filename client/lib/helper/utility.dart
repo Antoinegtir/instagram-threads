@@ -64,7 +64,7 @@ class Utility {
         msg,
         textAlign: TextAlign.center,
         style: const TextStyle(
-          color: Colors.red,
+          color: Color.fromARGB(255, 0, 0, 0),
           fontWeight: FontWeight.w600,
           letterSpacing: 1,
         ),
