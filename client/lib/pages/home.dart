@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
-import 'package:threads/notification/notification.dart';
-import 'package:threads/pages/search.dart';
-import 'package:threads/state/authState.dart';
-import 'package:threads/state/post.dart';
-import 'package:threads/state/searchState.dart';
-import 'package:threads/pages/myprofile.dart';
-import 'feed.dart';
+import 'package:threads/pages/notification/notification.dart';
+import 'package:threads/pages/search/search.dart';
+import 'package:threads/state/auth.state.dart';
+import 'package:threads/state/post.state.dart';
+import 'package:threads/state/search.state.dart';
+import 'package:threads/pages/profile/myprofile.dart';
+import 'feed/feed.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
