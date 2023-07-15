@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:threads/pages/home.dart';
 
-import '../widget/custom/rippleButton.dart';
+import '../../widget/custom/rippleButton.dart';
 
 class ThreadPage extends StatefulWidget {
   const ThreadPage({super.key});

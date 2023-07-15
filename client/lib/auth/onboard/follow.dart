@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:threads/auth/thread.dart';
-
-import '../widget/custom/rippleButton.dart';
+import 'package:threads/auth/onboard/thread.dart';
+import '../../widget/custom/rippleButton.dart';
 
 class FollowerPage extends StatefulWidget {
   const FollowerPage({super.key});

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:threads/auth/follow.dart';
-
-import '../widget/custom/rippleButton.dart';
+import 'package:threads/auth/onboard/follow.dart';
+import '../../widget/custom/rippleButton.dart';
 
 class PrivacyPage extends StatefulWidget {
   const PrivacyPage({super.key});

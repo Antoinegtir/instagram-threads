@@ -1,13 +1,12 @@
 import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:threads/auth/privacy.dart';
+import 'package:threads/auth/onboard/privacy.dart';
 import 'package:threads/helper/utility.dart';
 import 'package:provider/provider.dart';
-import '../model/user.dart';
-import '../pages/home.dart';
-import '../state/authState.dart';
-import '../widget/custom/rippleButton.dart';
+import '../../model/user.module.dart';
+import '../../state/auth.state.dart';
+import '../../widget/custom/rippleButton.dart';
 
 class EmailPage extends StatefulWidget {
   final String? name;

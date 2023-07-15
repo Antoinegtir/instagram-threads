@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:threads/auth/signup.dart';
+import 'package:threads/auth/signup/signup.dart';
 
 import 'account.dart';
 
