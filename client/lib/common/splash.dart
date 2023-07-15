@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:threads/auth/name.dart';
+import 'package:threads/auth/signup/name.dart';
 import 'package:threads/helper/enum.dart';
-import 'package:threads/state/authState.dart';
+import 'package:threads/state/auth.state.dart';
 import 'package:threads/pages/home.dart';
-import 'package:threads/state/profile_state.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
