@@ -197,27 +197,30 @@ class _ProfilePageState extends State<ProfilePage>
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              EditProfilePage()));
-                                },
-                                child: Container(
-                                    height: 40,
-                                    width: 170,
-                                    decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.circular(8),
-                                      border: Border.all(
-                                        color: Colors.grey,
-                                        width: 0.5,
-                                      ),
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Text("Edit profile"))),
+                            !isMyProfile
+                                ? Container()
+                                : GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  EditProfilePage()));
+                                    },
+                                    child: Container(
+                                        height: 40,
+                                        width: 170,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          border: Border.all(
+                                            color: Colors.grey,
+                                            width: 0.5,
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text("Edit profile"))),
                             Container(
                               width: 10,
                             ),

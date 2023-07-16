@@ -72,7 +72,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           toolbarHeight: 68,
           leading: Container(),
           flexibleSpace: Padding(
-              padding: EdgeInsets.only(left: 5, top: 78),
+              padding: EdgeInsets.only(left: 5, top: 60),
               child: Container(
                   decoration: BoxDecoration(
                       color: Color.fromARGB(255, 29, 29, 29),
