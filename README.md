@@ -1,5 +1,7 @@
 # Fhreads.
 
+<img src="client/assets/banner.png"></img>
+
 ## Description:
 The project aims to clone the Threads from Instagram social network in order to understand how this type of application could work, using Flutter framework & Firebase Database.
 This repository is use for educationnal content.
@@ -14,9 +16,9 @@ if you want to see in realtime the progression of the evolution of project, foll
 
 ## Screenshots
 
-Profile Page               |  Switch Page               | Config Page               |  Signup Page
+Onboard Page               |  Switch Page               | Config Page               |  Signup Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/profile.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/switch.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/config.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/signup.png?raw=true)|
+![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/onboard.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/switch.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/config.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/signup.png?raw=true)|
 
 Follow Page         |  Privacy Page       |   Threads Page               |  Feed Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
