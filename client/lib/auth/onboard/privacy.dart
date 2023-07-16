@@ -164,7 +164,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
               ),
             )),
         Container(
-          height: MediaQuery.of(context).size.height / 4.5,
+          height: MediaQuery.of(context).size.height / 7,
         ),
         RippleButton(
             splashColor: Colors.transparent,

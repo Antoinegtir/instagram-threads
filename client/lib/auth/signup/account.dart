@@ -240,7 +240,7 @@ class _SwitchAccountState extends State<SwitchAccount> {
                           ],
                         ))),
                 Container(
-                  height: MediaQuery.of(context).size.height / 2.8,
+                  height: MediaQuery.of(context).size.height / 4,
                 ),
                 GestureDetector(
                   onTap: () {

@@ -33,12 +33,47 @@ class _NamePageState extends State<NamePage> {
         children: [
           ClipRect(
               child: Align(
-            alignment: Alignment.topCenter,
-            child: Image.asset(
-              "assets/signin.jpg",
-              fit: BoxFit.cover,
-            ),
-          )),
+                  alignment: Alignment.topCenter,
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        "assets/signin.jpg",
+                        height: MediaQuery.of(context).size.height / 1.5,
+                        fit: BoxFit.fitWidth,
+                        width: MediaQuery.of(context).size.width,
+                      ),
+                      Container(
+                          height: MediaQuery.of(context).size.height / 1.5,
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.bottomRight,
+                                  end: Alignment.topRight,
+                                  colors: [
+                                Colors.black.withOpacity(1),
+                                Colors.black.withOpacity(1),
+                                Colors.black.withOpacity(1),
+                                Colors.black.withOpacity(1),
+                                Colors.black.withOpacity(0.9),
+                                Colors.black.withOpacity(0.8),
+                                Colors.black.withOpacity(0.7),
+                                Colors.black.withOpacity(0.6),
+                                Colors.black.withOpacity(0.5),
+                                Colors.black.withOpacity(0.4),
+                                Colors.black.withOpacity(0.3),
+                                Colors.black.withOpacity(0.2),
+                                Colors.black.withOpacity(0.1),
+                                Colors.black.withOpacity(0.05),
+                                Colors.black.withOpacity(0.025),
+                                Colors.black.withOpacity(0.0),
+                                Colors.black.withOpacity(0.0),
+                                Colors.black.withOpacity(0.0),
+                                Colors.black.withOpacity(0.0),
+                                Colors.black.withOpacity(0.0),
+                                Colors.black.withOpacity(0.0),
+                                Colors.black.withOpacity(0.0),
+                              ])))
+                    ],
+                  ))),
           Container(
             height: 50,
           ),
@@ -77,7 +112,7 @@ class _NamePageState extends State<NamePage> {
                             height: 3,
                           ),
                           Text(
-                            " antoine.gtier",
+                            " instagram account",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,

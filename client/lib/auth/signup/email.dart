@@ -191,6 +191,7 @@ class _SignupState extends State<EmailPage> {
       displayName: widget.name,
       userName: "@" + "${widget.name}" + "${Random().nextInt(1000)}",
       bio: widget.bio,
+      profilePic: "https://firebasestorage.googleapis.com/v0/b/threads-instagram.appspot.com/o/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202023-07-09%20at%2021.28.44.jpeg?alt=media&token=9ba68508-7555-4b64-824c-e17ee14753a3",
       link: widget.link,
     );
     state.updateUserProfile(

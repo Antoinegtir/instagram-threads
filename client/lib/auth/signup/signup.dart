@@ -126,7 +126,7 @@ class _SignupState extends State<Signup> {
                               ),
                               style:
                                   TextStyle(color: Colors.white, fontSize: 18),
-                              placeholder: 'Antoine.gtir',
+                              placeholder: 'instagram account',
                               placeholderStyle:
                                   TextStyle(color: Colors.grey, fontSize: 18),
                               padding: EdgeInsets.all(8),
