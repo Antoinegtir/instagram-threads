@@ -18,6 +18,7 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin {
         backgroundColor: Colors.black,
         appBar: AppBar(
           leading: Container(),
+          centerTitle: true,
           title: Lottie.network(
               "https://assets3.lottiefiles.com/packages/lf20_Ht77kFLXYw.json",
               height: 50),
