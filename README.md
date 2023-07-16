@@ -1,4 +1,6 @@
-# Fhreads.
+# Threads.
+
+<img src="https://staticg.sportskeeda.com/editor/2023/07/9a80c-16886367720159-1920.jpg"></img>
 
 ## Description:
 The project aims to clone the Threads from Instagram social network in order to understand how this type of application could work, using Flutter framework & Firebase Database.
@@ -14,9 +16,9 @@ if you want to see in realtime the progression of the evolution of project, foll
 
 ## Screenshots
 
-Onboard Page               |  Switch Page               | Config Page               |  Signup Page
+Profile Page               |  Switch Page               | Config Page               |  Signup Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/onboard.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/switch.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/config.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/signup.png?raw=true)|
+![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/profile.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/switch.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/config.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/signup.png?raw=true)|
 
 Follow Page         |  Privacy Page       |   Threads Page               |  Feed Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
