@@ -36,12 +36,12 @@ class _NamePageState extends State<NamePage> {
                   alignment: Alignment.topCenter,
                   child: Stack(
                     children: [
-                      // Image.asset(
-                      //   "assets/signin.jpg",
-                      //   height: MediaQuery.of(context).size.height / 1.5,
-                      //   fit: BoxFit.fitWidth,
-                      //   width: MediaQuery.of(context).size.width,
-                      // ),
+                      Image.asset(
+                        "assets/signin.jpg",
+                        height: MediaQuery.of(context).size.height / 1.5,
+                        fit: BoxFit.fitWidth,
+                        width: MediaQuery.of(context).size.width,
+                      ),
                       Container(
                           height: MediaQuery.of(context).size.height / 1.5,
                           decoration: BoxDecoration(
