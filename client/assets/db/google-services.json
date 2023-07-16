@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "799971967226",
+    "firebase_url": "https://threads-instagram-default-rtdb.firebaseio.com",
+    "project_id": "threads-instagram",
+    "storage_bucket": "threads-instagram.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799971967226:android:c61ea0cbebe6671ed50943",
+        "android_client_info": {
+          "package_name": "com.instagram.threads"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799971967226-0g792vk581h59icp3o1m70tpo82iljga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJh-Kk_TafNq1hT9id9CWh31BZ7os4N_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799971967226-0g792vk581h59icp3o1m70tpo82iljga.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "799971967226-o5aopjq8frt063ng2pjbbq62ltrqcdgg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.antoine-gonthier.threads"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
