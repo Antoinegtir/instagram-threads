@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:threads/auth/signup/name.dart';
 import 'package:threads/helper/enum.dart';
-import 'package:threads/state/auth.state.dart';
 import 'package:threads/pages/home.dart';
+import 'package:threads/state/auth.state.dart';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  _SplashPageState createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage> {
@@ -23,6 +23,8 @@ class _SplashPageState extends State<SplashPage> {
 
   bool isAppUpdated = true;
 
+  /// Check if current app is updated app or not
+  /// If app is not updated then redirect user to update app screen
   void timer() async {
     if (isAppUpdated) {
       Future.delayed(const Duration(seconds: 1)).then((_) {
@@ -32,14 +34,20 @@ class _SplashPageState extends State<SplashPage> {
     }
   }
 
+  Widget _body() {
+    return Container();
+  }
+
   @override
   Widget build(BuildContext context) {
     var state = Provider.of<AuthState>(context);
     return Scaffold(
       backgroundColor: Colors.black,
-      body: state.authStatus == AuthStatus.NOT_LOGGED_IN
-          ? const NamePage()
-          : HomePage(),
+      body: state.authStatus == AuthStatus.NOT_DETERMINED
+          ? _body()
+          : state.authStatus == AuthStatus.NOT_LOGGED_IN
+              ? const NamePage()
+              : const HomePage(),
     );
   }
 }

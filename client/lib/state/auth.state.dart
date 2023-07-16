@@ -10,7 +10,7 @@ import 'package:threads/helper/shared_prefrence_helper.dart';
 import 'package:threads/helper/utility.dart';
 import 'package:threads/model/user.module.dart';
 import 'package:threads/state/app.state.dart';
-import '../common/locator.dart';
+import 'package:threads/common/locator.dart';
 import 'package:path/path.dart' as path;
 
 class AuthState extends AppStates {
@@ -35,9 +35,6 @@ class AuthState extends AppStates {
     user = null;
     _profileQuery!.onValue.drain();
     _profileQuery = null;
-    if (isSignInWithGoogle) {
-      isSignInWithGoogle = false;
-    }
     _firebaseAuth.signOut();
     notifyListeners();
     await getIt<SharedPreferenceHelper>().clearPreferenceValues();
@@ -47,10 +44,35 @@ class AuthState extends AppStates {
     try {
       if (_profileQuery == null) {
         _profileQuery = kDatabase.child("profile").child(user!.uid);
+        _profileQuery!.onValue.listen(_onProfileChanged);
         _profileQuery!.onChildChanged.listen(_onProfileUpdated);
       }
+    } catch (error) {}
+  }
+
+  Future<String?> signIn(String email, String password, BuildContext context,
+      {required GlobalKey<ScaffoldState> scaffoldKey}) async {
+    try {
+      isBusy = true;
+      var result = await _firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
+      user = result.user;
+      userId = user!.uid;
+      return user!.uid;
+    } on FirebaseException catch (error) {
+      if (error.code == 'Email Adress Not found') {
+        Utility.customSnackBar(scaffoldKey, 'User not found', context);
+      } else {
+        Utility.customSnackBar(
+            scaffoldKey, error.message ?? 'Something went wrong', context);
+      }
+      return null;
     } catch (error) {
-      print(error);
+      Utility.customSnackBar(scaffoldKey, error.toString(), context);
+
+      return null;
+    } finally {
+      isBusy = false;
     }
   }
 
@@ -58,6 +80,7 @@ class AuthState extends AppStates {
       {required GlobalKey<ScaffoldState> scaffoldKey,
       required String password}) async {
     try {
+      isBusy = true;
       var result = await _firebaseAuth.createUserWithEmailAndPassword(
         email: userModel.email!,
         password: password,
@@ -76,6 +99,7 @@ class AuthState extends AppStates {
       createUser(_userModel!, newUser: true);
       return user!.uid;
     } catch (error) {
+      isBusy = false;
       Utility.customSnackBar(scaffoldKey, error.toString(), context);
       return null;
     }
@@ -86,16 +110,16 @@ class AuthState extends AppStates {
       user.userName =
           Utility.getUserName(id: user.userId!, name: user.displayName!);
       kAnalytics.logEvent(name: 'create_newUser');
-
-      user.createAt = DateTime.now().toUtc().toString();
     }
 
     kDatabase.child('profile').child(user.userId!).set(user.toJson());
     _userModel = user;
+    isBusy = false;
   }
 
   Future<User?> getCurrentUser() async {
     try {
+      isBusy = true;
       user = _firebaseAuth.currentUser;
       if (user != null) {
         await getProfileUser();
@@ -104,8 +128,10 @@ class AuthState extends AppStates {
       } else {
         authStatus = AuthStatus.NOT_LOGGED_IN;
       }
+      isBusy = false;
       return user;
     } catch (error) {
+      isBusy = false;
       authStatus = AuthStatus.NOT_LOGGED_IN;
       return null;
     }
@@ -131,15 +157,12 @@ class AuthState extends AppStates {
           createUser(_userModel!);
         }
       }
-    } catch (error) {
-      print(error);
-    }
+    } catch (error) {}
   }
 
   Future<String> _uploadFileToStorage(File file, path) async {
     var task = _firebaseStorage.ref().child(path);
     var status = await task.putFile(file);
-    print(status.state.name);
 
     return await task.getDownloadURL();
   }
@@ -177,9 +200,20 @@ class AuthState extends AppStates {
             }
           }
         }
+        isBusy = false;
       });
     } catch (error) {
-      print(error);
+      isBusy = false;
+    }
+  }
+
+  void _onProfileChanged(DatabaseEvent event) {
+    final val = event.snapshot.value;
+    if (val is Map) {
+      final updatedUser = UserModel.fromJson(val);
+      _userModel = updatedUser;
+      getIt<SharedPreferenceHelper>().saveUserProfile(_userModel!);
+      notifyListeners();
     }
   }
 

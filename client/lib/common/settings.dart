@@ -220,7 +220,6 @@ class _SettingsPageState extends State<SettingsPage> {
                         onTap: () {
                           state.logoutCallback();
                           Navigator.pop(context);
-                          Navigator.pop(context);
                         },
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
