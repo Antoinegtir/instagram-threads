@@ -9,22 +9,25 @@ import 'package:provider/provider.dart';
 import 'package:threads/state/post.state.dart';
 import 'package:threads/state/search.state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:io' as d;
 
 List<CameraDescription> cameras = [];
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   cameras = await availableCameras();
-  // Temporary function in order to run correctly Firebase on Android
-  await Firebase.initializeApp(
-      options: FirebaseOptions(
-          apiKey: "API_KEY",
-          authDomain: "AUTH_DOMAIN",
-          databaseURL: "DB_URL",
-          projectId: "ID_FIREBASE_PROJECT",
-          storageBucket: "STORAGE_BUCKET",
-          messagingSenderId: "ID_MESSAGE",
-          appId: "APP_ID",
-          measurementId: "MEASUREMENT_ID"));
+  if (d.Platform.isIOS)
+    Firebase.initializeApp();
+  else
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: "apiKey",
+            authDomain: "authDomain",
+            databaseURL: "databaseURL",
+            projectId: "projectId",
+            storageBucket: "storageBucket",
+            messagingSenderId: "messagingSenderId",
+            appId: "appId",
+            measurementId: "measurementId"));
   setupDependencies();
   final sharedPreferences = await SharedPreferences.getInstance();
   runApp(MyApp(
