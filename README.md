@@ -16,9 +16,7 @@ if you want to see in realtime the progression of the evolution of project, foll
 
 ## Screenshots
 
-Onboard Page               |  Switch Page               | Config Page               |  Signup Page
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/onboard.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/switch.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/config.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/signup.png?raw=true)|
+
 
 Follow Page         |  Privacy Page       |   Threads Page               |  Feed Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
