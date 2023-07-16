@@ -14,7 +14,17 @@ List<CameraDescription> cameras = [];
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   cameras = await availableCameras();
-  await Firebase.initializeApp();
+  // Temporary function in order to run correctly Firebase on Android
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: "API_KEY",
+          authDomain: "AUTH_DOMAIN",
+          databaseURL: "DB_URL",
+          projectId: "ID_FIREBASE_PROJECT",
+          storageBucket: "STORAGE_BUCKET",
+          messagingSenderId: "ID_MESSAGE",
+          appId: "APP_ID",
+          measurementId: "MEASUREMENT_ID"));
   setupDependencies();
   final sharedPreferences = await SharedPreferences.getInstance();
   runApp(MyApp(
