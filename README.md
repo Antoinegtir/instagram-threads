@@ -1,6 +1,6 @@
 # Fhreads.
 
-<img src="client/assets/banner.png"></img>
+<img height="300" src="client/assets/banner.png"></img>
 
 ## Description:
 The project aims to clone the Threads from Instagram social network in order to understand how this type of application could work, using Flutter framework & Firebase Database.
