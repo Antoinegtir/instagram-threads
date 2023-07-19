@@ -45,9 +45,11 @@ class _ProfilePageState extends State<ProfilePage>
   int pageIndex = 0;
   int counter = 3;
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  late TabController _tabController;
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      _tabController = TabController(length: 2, vsync: this);
       var authstate = Provider.of<ProfileState>(context, listen: false);
       isMyProfile = authstate.isMyProfile;
     });
@@ -242,67 +244,70 @@ class _ProfilePageState extends State<ProfilePage>
                         Container(
                           height: 20,
                         ),
-                        // Container(
-                        //   width: MediaQuery.of(context).size.width,
-                        //   child: TabBar(
-                        //     onTap: (index) {},
-                        //     controller: _tabController,
-                        //     isScrollable: false,
-                        //     labelColor: Colors.white,
-                        //     unselectedLabelColor: Colors.grey,
-                        //     indicatorColor: Colors.white,
-                        //     indicatorWeight: 1,
-                        //     tabs: [
-                        //       Padding(
-                        //           padding: EdgeInsets.only(left: 20),
-                        //           child: Tab(
-                        //               child: Text(
-                        //             'Threads',
-                        //             style: TextStyle(
-                        //               fontSize: 15,
-                        //               fontWeight: FontWeight.w600,
-                        //             ),
-                        //           ))),
-                        //       Padding(
-                        //         padding: EdgeInsets.only(right: 0),
-                        //         child: Tab(
-                        //             child: Text(
-                        //           'Replies',
-                        //           style: TextStyle(
-                        //             fontSize: 15,
-                        //             fontWeight: FontWeight.w600,
-                        //           ),
-                        //         )),
-                        //       )
-                        //     ],
-                        //   ),
-                        // ),
-                        // Container(
-                        //     width: MediaQuery.of(context).size.width,
-                        //     height: 300,
-                        //     child:
-                        //         TabBarView(controller: _tabController, children: [
-                        //       Container(
-                        //         height: 200,
-                        //         width: 200,
-                        //         alignment: Alignment.center,
-                        //         child: Text(
-                        //           "You haven't posted any threads yet.",
-                        //           style: TextStyle(
-                        //               color: Color.fromARGB(255, 63, 63, 63)),
-                        //         ),
-                        //       ),
-                        //       Container(
-                        //         height: 100,
-                        //         width: 200,
-                        //         alignment: Alignment.center,
-                        //         child: Text(
-                        //           "You haven't posted any threads yet.",
-                        //           style: TextStyle(
-                        //               color: Color.fromARGB(255, 63, 63, 63)),
-                        //         ),
-                        //       )
-                        //     ]))
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: TabBar(
+                            onTap: (index) {},
+                            controller: _tabController,
+                            isScrollable: false,
+                            labelColor: Colors.white,
+                            unselectedLabelColor: Colors.grey,
+                            indicatorColor: Colors.white,
+                            indicatorWeight: 1,
+                            tabs: [
+                              Padding(
+                                  padding: EdgeInsets.only(left: 20),
+                                  child: Tab(
+                                      child: Text(
+                                    'Threads',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ))),
+                              Padding(
+                                padding: EdgeInsets.only(right: 0),
+                                child: Tab(
+                                    child: Text(
+                                  'Replies',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 300,
+                            child: TabBarView(
+                                controller: _tabController,
+                                children: [
+                                  Container(
+                                    height: 200,
+                                    width: 200,
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "You haven't posted any threads yet.",
+                                      style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 63, 63, 63)),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 100,
+                                    width: 200,
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "You haven't posted any threads yet.",
+                                      style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 63, 63, 63)),
+                                    ),
+                                  )
+                                ]))
                       ]))
             ])));
   }

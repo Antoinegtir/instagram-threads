@@ -102,10 +102,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    var authState = Provider.of<AuthState>(context, listen: false);
-    authState.getCurrentUser().then((value) {
-      setState(() {});
-    });
+
     return Scaffold(
         extendBody: true,
         bottomNavigationBar: bottomNavBar(),
