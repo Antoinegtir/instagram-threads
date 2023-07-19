@@ -1,4 +1,4 @@
-# Fhreads.
+# Threads.
 
 <img height="300" src="client/assets/banner.png"></img>
 
