@@ -27,7 +27,7 @@ class _NamePageState extends State<NamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0a0a0a),
+      backgroundColor: Colors.black,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
