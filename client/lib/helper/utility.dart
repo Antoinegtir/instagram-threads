@@ -2,6 +2,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 final kAnalytics = FirebaseAnalytics.instance;
 final DatabaseReference kDatabase = FirebaseDatabase.instance.ref();
@@ -19,6 +20,15 @@ class Utility {
     id = id.substring(0, 4).toLowerCase();
     userName = '@$name$id';
     return userName;
+  }
+
+  static String getdob(String? date) {
+    if (date == null || date.isEmpty) {
+      return '';
+    }
+    var dt = DateTime.parse(date).toLocal();
+    var dat = DateFormat.yMMMd().format(dt);
+    return dat;
   }
 
   static bool validateCredentials(BuildContext context,
