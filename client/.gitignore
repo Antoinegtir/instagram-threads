@@ -1,6 +1,7 @@
 # Miscellaneous
 *.class
 *.log
+lib/camera
 *.pyc
 *.swp
 .DS_Store
