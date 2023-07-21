@@ -1,13 +1,11 @@
-// ignore_for_file: unnecessary_null_comparison
+// ignore_for_file: unnecessary_null_comparison, unused_element
 
 import 'dart:io';
 import 'dart:ui';
 import 'package:animate_do/animate_do.dart';
-import 'package:awesome_icons/awesome_icons.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import 'package:threads/model/post.module.dart';
 import 'package:threads/model/user.module.dart';
@@ -37,64 +35,23 @@ class _ComposePostReplyPageState extends State<Bio> {
   late PostModel? model;
   late ScrollController scrollcontroller;
   late TextEditingController _textEditingController;
-  late TextEditingController _youtubeUrl;
-  late TextEditingController _tag;
-  late TextEditingController _modelUrl;
 
   @override
   void dispose() {
     scrollcontroller.dispose();
     _textEditingController.dispose();
-    _youtubeUrl.dispose();
-    _tag.dispose();
-    _modelUrl.dispose();
     super.dispose();
   }
 
   @override
   void initState() {
-    var feedState = Provider.of<PostState>(context, listen: false);
-    model = feedState.postToReplyModel;
     scrollcontroller = ScrollController();
     _textEditingController = TextEditingController();
-    _youtubeUrl = TextEditingController();
-    _tag = TextEditingController();
-    _modelUrl = TextEditingController();
     super.initState();
   }
 
-  String sofware = "";
-  String tagss = "";
-
-  RegExp youtubeUrlPattern = RegExp(
-      r"^(https?://)?(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=)?([\w-]+)");
-
-  RegExp modelPattern = RegExp(r'^https://.*\.(glb|gtlf)$');
-
   /// Submit post to save in firebase database
   void _submitButton() async {
-    if (!youtubeUrlPattern.hasMatch(_youtubeUrl.text) &&
-            _youtubeUrl.text != "" ||
-        !modelPattern.hasMatch(_modelUrl.text) && _modelUrl.text != "") {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(40), topRight: Radius.circular(40))),
-        backgroundColor: Colors.white,
-        content: Container(
-            alignment: Alignment.center,
-            height: 30,
-            child: Text(
-              'Oups,url not good 0_o',
-              style: TextStyle(
-                  fontFamily: "icons.ttf",
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w900),
-            )),
-      ));
-      return;
-    }
     if (_textEditingController.text.length > 280) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         shape: RoundedRectangleBorder(
@@ -139,10 +96,12 @@ class _ComposePostReplyPageState extends State<Bio> {
     postModel.key = postId;
   }
 
-  Widget _entry(BuildContext context, String title, Icon icon,
-      {required TextEditingController controller,
-      bool isenable = true,
-      bool test = true}) {
+  Widget _entry(
+    BuildContext context,
+    String title,
+    Icon icon, {
+    required TextEditingController controller,
+  }) {
     return Container(
       margin: const EdgeInsets.only(top: 10, right: 10, left: 10),
       child: Column(
@@ -179,11 +138,7 @@ class _ComposePostReplyPageState extends State<Bio> {
                           color: Color.fromARGB(255, 149, 149, 149),
                           fontSize: 15,
                           fontWeight: FontWeight.w400),
-                      hintText: !test
-                          ? "Draw, Painting, 3D..."
-                          : isenable
-                              ? "https://path/to/file.glb"
-                              : "https://youtu.be/",
+                      hintText: "Draw, Painting, 3D...",
                       prefixIcon: icon,
                       contentPadding: EdgeInsets.only(left: 10),
                       focusedBorder: OutlineInputBorder(
@@ -203,16 +158,11 @@ class _ComposePostReplyPageState extends State<Bio> {
 
   bool more = false;
 
-  /// Return Post model which is either a new Post , repost model or comment model
-  /// If post is new post then `parentkey` and `childRetwetkey` should be null
-  /// IF post is a comment then it should have `parentkey`
-  /// IF post is a repost then it should have `childRetwetkey`
   Future<PostModel> createPostModel() async {
     var authState = Provider.of<AuthState>(context, listen: false);
     var myUser = authState.userModel;
     var profilePic = myUser!.profilePic;
 
-    /// User who are creting reply post
     var commentedUser = UserModel(
         displayName: myUser.displayName ?? myUser.email!.split('@')[0],
         profilePic: profilePic,
@@ -230,8 +180,6 @@ class _ComposePostReplyPageState extends State<Bio> {
   @override
   Widget build(BuildContext context) {
     final searchState = Provider.of<SearchState>(context, listen: false);
-    List<String> words = tagss.split(" ");
-    List<String> wordss = sofware.split(" ");
     var authState = Provider.of<AuthState>(context);
     return Scaffold(
         extendBodyBehindAppBar: true,
@@ -343,184 +291,6 @@ class _ComposePostReplyPageState extends State<Bio> {
                                 )
                               ],
                             ))),
-                    Row(
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.only(left: 23),
-                            child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    more == true ? more = false : more = true;
-                                  });
-                                },
-                                child: FadeIn(
-                                    child: Text(
-                                  more ? "Show less.." : "Show more..",
-                                  style: TextStyle(color: Colors.blue),
-                                )))),
-                      ],
-                    ),
-                    Visibility(
-                        visible: more,
-                        child: FadeInDown(
-                            child: _entry(
-                                context,
-                                'Video Url Demo',
-                                Icon(
-                                  FontAwesomeIcons.youtube,
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                ),
-                                controller: _youtubeUrl,
-                                isenable: false))),
-                    Visibility(
-                        visible: more,
-                        child: FadeInDown(
-                            child: _entry(context, '3D Model View',
-                                Icon(Iconsax.d_rotate, color: Colors.white),
-                                controller: _modelUrl))),
-                    Visibility(
-                        visible: more,
-                        child: FadeInDown(
-                          child: Padding(
-                              padding: EdgeInsets.only(top: 20),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 23, bottom: 10),
-                                          child: Wrap(
-                                            crossAxisAlignment:
-                                                WrapCrossAlignment.center,
-                                            children: [
-                                              Container(
-                                                width: 5,
-                                              ),
-                                              Container(
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      1.5,
-                                                  height: 25,
-                                                  child: ListView(
-                                                    scrollDirection:
-                                                        Axis.horizontal,
-                                                    children: [
-                                                      for (String word
-                                                          in wordss)
-                                                        if (word != 'null' &&
-                                                            word != " ")
-                                                          Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .only(
-                                                                left: 5,
-                                                              ),
-                                                              child: Container(
-                                                                height: 25,
-                                                                width:
-                                                                    word.length *
-                                                                        9,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              5),
-                                                                  shape: BoxShape
-                                                                      .rectangle,
-                                                                  border: Border.all(
-                                                                      color: Colors
-                                                                          .white,
-                                                                      width: 1),
-                                                                ),
-                                                                child: Center(
-                                                                  child: Text(
-                                                                      word.contains(
-                                                                              ",")
-                                                                          ? word.replaceAll(
-                                                                              ",",
-                                                                              "")
-                                                                          : word,
-                                                                      style: TextStyle(
-                                                                          color:
-                                                                              Colors.white)),
-                                                                ),
-                                                              )),
-                                                    ],
-                                                  )),
-                                            ],
-                                          )),
-                                      Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 23, bottom: 10),
-                                          child: Wrap(
-                                            crossAxisAlignment:
-                                                WrapCrossAlignment.center,
-                                            children: [
-                                              Container(
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      1.5,
-                                                  height: 25,
-                                                  child: ListView(
-                                                    scrollDirection:
-                                                        Axis.horizontal,
-                                                    children: [
-                                                      for (String word in words)
-                                                        if (word != 'null' &&
-                                                            word != " ")
-                                                          Padding(
-                                                              padding: EdgeInsets
-                                                                  .only(
-                                                                      left: 5),
-                                                              child: Container(
-                                                                height: 25,
-                                                                width:
-                                                                    word.length *
-                                                                        9,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              5),
-                                                                  shape: BoxShape
-                                                                      .rectangle,
-                                                                  border: Border.all(
-                                                                      color: Colors
-                                                                          .white,
-                                                                      width: 1),
-                                                                ),
-                                                                child: Center(
-                                                                  child: Text(
-                                                                      word.contains(
-                                                                              ",")
-                                                                          ? word.replaceAll(
-                                                                              ",",
-                                                                              "")
-                                                                          : word,
-                                                                      style: TextStyle(
-                                                                          color:
-                                                                              Colors.white)),
-                                                                ),
-                                                              )),
-                                                    ],
-                                                  )),
-                                            ],
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              )),
-                        )),
-                    Container(
-                      height: 50,
-                    ),
                     RippleButton(
                       splashColor: Colors.transparent,
                       child: Container(
@@ -562,7 +332,6 @@ class _UserList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final searchState = Provider.of<SearchState>(context, listen: false);
     return !Provider.of<ComposePostState>(context).displayUserList ||
             list == null ||
             list!.length < 0 ||
