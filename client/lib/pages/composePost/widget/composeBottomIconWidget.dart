@@ -31,23 +31,14 @@ class _ComposeBottomIconWidgetState extends State<ComposeBottomIconWidget> {
   }
 
   Widget _bottomIconWidget() {
-    return Container(
-        color: Colors.black.withOpacity(0),
-        width: 100,
-        height: 70,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IconButton(
-                onPressed: () {
-                  setImage(ImageSource.gallery);
-                },
-                icon: Icon(
-                  Iconsax.picture_frame,
-                  size: 40,
-                  color: Colors.blue,
-                )),
-          ],
+    return IconButton(
+        onPressed: () {
+          setImage(ImageSource.gallery);
+        },
+        icon: Icon(
+          Iconsax.picture_frame,
+          size: 30,
+          color: Colors.white,
         ));
   }
 
@@ -75,7 +66,7 @@ class _ComposeBottomIconWidgetState extends State<ComposeBottomIconWidget> {
     if (/*post == null || */ post.isEmpty) {
       return 0.0;
     }
-    if (post.length > 280) {
+    if (post.length > 500) {
       return 1.0;
     }
     var length = post.length;
@@ -85,12 +76,8 @@ class _ComposeBottomIconWidgetState extends State<ComposeBottomIconWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          child: _bottomIconWidget(),
-        )
-      ],
+    return Container(
+      child: _bottomIconWidget(),
     );
   }
 }
