@@ -1,10 +1,13 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/firebase_database.dart' as dabase;
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:threads/helper/utility.dart';
 import 'package:threads/model/user.module.dart';
 import 'package:threads/state/app.state.dart';
 import '../model/post.module.dart';
+import 'package:path/path.dart' as path;
 
 class PostState extends AppStates {
   bool isBusy = false;
@@ -26,6 +29,46 @@ class PostState extends AppStates {
       return null;
     } else {
       return List.from(_feedlist!.reversed);
+    }
+  }
+
+  Future<String?> createPost(PostModel model) async {
+    ///  Create post in [Firebase kDatabase]
+    isBusy = true;
+    notifyListeners();
+    String? postKey;
+    try {
+      DatabaseReference dbReference = kDatabase.child('post').push();
+
+      await dbReference.set(model.toJson());
+
+      postKey = dbReference.key;
+    } catch (error) {
+      print(error);
+    }
+    isBusy = false;
+    notifyListeners();
+    return postKey;
+  }
+
+  Future<String?> uploadFile(File file) async {
+    try {
+      isBusy = true;
+      notifyListeners();
+      var storageReference = FirebaseStorage.instance
+          .ref()
+          .child("threadsImage")
+          .child(path.basename(DateTime.now().toIso8601String() + file.path));
+      await storageReference.putFile(file);
+
+      var url = await storageReference.getDownloadURL();
+      if (url != null) {
+        return url;
+      }
+      return null;
+    } catch (error) {
+      print(error);
+      return null;
     }
   }
 
