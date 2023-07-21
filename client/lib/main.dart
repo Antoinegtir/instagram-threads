@@ -20,14 +20,15 @@ void main() async {
   else
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "apiKey",
-            authDomain: "authDomain",
-            databaseURL: "databaseURL",
-            projectId: "projectId",
-            storageBucket: "storageBucket",
-            messagingSenderId: "messagingSenderId",
-            appId: "appId",
-            measurementId: "measurementId"));
+            apiKey: "AIzaSyBQ68_qY1qYrYvXalCrrbXZwgB5NlZJ94w",
+            authDomain: "threads-instagram.firebaseapp.com",
+            databaseURL:
+                "https://threads-instagram-default-rtdb.firebaseio.com",
+            projectId: "threads-instagram",
+            storageBucket: "threads-instagram.appspot.com",
+            messagingSenderId: "799971967226",
+            appId: "1:799971967226:web:122c3ae661013c38d50943",
+            measurementId: "G-J8Y7QJK62L"));
   setupDependencies();
   final sharedPreferences = await SharedPreferences.getInstance();
   runApp(MyApp(
