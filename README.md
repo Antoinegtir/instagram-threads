@@ -14,6 +14,12 @@ The project is under construction, activly developed, `feel free to star the pro
 
 if you want to see in realtime the progression of the evolution of project, follow the link: https://github.com/users/Antoinegtir/projects/6
 
+## 🔗 Link of my article about the implemtation
+
+ <a href="https://medium.com/@zkhwctb/how-i-created-an-open-source-threads-clone-with-flutter-bddc7b6ebc55">
+    <img src="https://img.shields.io/badge/medium-fff?style=for-the-badge&logo=medium&logoColor=black" alt="Medium">
+</a>
+
 ## Screenshots
 
 
