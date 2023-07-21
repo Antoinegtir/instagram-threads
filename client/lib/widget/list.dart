@@ -40,7 +40,7 @@ class UserTilePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   TitleText(
-                    user.displayName!,
+                    user.displayName == null ? "" : user.displayName!,
                     fontSize: 20,
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
