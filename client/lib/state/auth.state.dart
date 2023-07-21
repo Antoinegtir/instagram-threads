@@ -162,7 +162,6 @@ class AuthState extends AppStates {
 
   Future<String> _uploadFileToStorage(File file, path) async {
     var task = _firebaseStorage.ref().child(path);
-    var status = await task.putFile(file);
 
     return await task.getDownloadURL();
   }

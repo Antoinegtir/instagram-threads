@@ -62,10 +62,7 @@ class PostState extends AppStates {
       await storageReference.putFile(file);
 
       var url = await storageReference.getDownloadURL();
-      if (url != null) {
-        return url;
-      }
-      return null;
+      return url;
     } catch (error) {
       print(error);
       return null;
