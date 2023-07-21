@@ -5,8 +5,7 @@ import 'package:threads/model/user.module.dart';
 
 class PostModel {
   String? key;
-  String? imageFrontPath;
-  String? imageBackPath;
+  String? imagePath;
   String? bio;
   late String createdAt;
   UserModel? user;
@@ -15,9 +14,8 @@ class PostModel {
   PostModel({
     this.key,
     required this.createdAt,
-    this.imageFrontPath,
+    this.imagePath,
     this.bio,
-    this.imageBackPath,
     this.user,
   });
 
@@ -25,8 +23,7 @@ class PostModel {
     return {
       "createdAt": createdAt,
       "bio": bio,
-      "imageBackPath": imageBackPath,
-      "imageFrontPath": imageFrontPath,
+      "imagePath": imagePath,
       "user": user == null ? null : user!.toJson(),
     };
   }
@@ -34,9 +31,8 @@ class PostModel {
   PostModel.fromJson(Map<dynamic, dynamic> map) {
     key = map['key'];
     bio = map['bio'];
-    imageBackPath = map['imageBackPath'];
     createdAt = map['createdAt'];
-    imageFrontPath = map['imageFrontPath'];
+    imagePath = map['imagePath'];
     user = UserModel.fromJson(map['user']);
   }
 
