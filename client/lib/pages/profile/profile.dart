@@ -73,8 +73,11 @@ class _ProfilePageState extends State<ProfilePage>
                           MaterialPageRoute(
                               builder: (context) => SettingsPage()));
                     },
-                    child: Icon(CupertinoIcons.list_bullet_indent,
-                        color: Colors.white))
+                    child: Container(
+                        width: 50,
+                        height: 50,
+                        child: Icon(CupertinoIcons.list_bullet_indent,
+                            color: Colors.white)))
               ],
               leading: GestureDetector(
                   onTap: () {
