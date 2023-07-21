@@ -26,6 +26,7 @@ dependencies:
   iconsax: ^0.0.8
   image_cropper: ^4.0.1
   image_picker: ^0.8.7
+  intl: ^0.18.1
   lottie: ^2.3.2
   path: ^1.8.2
   path_provider: ^2.0.14
