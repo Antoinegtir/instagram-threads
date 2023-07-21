@@ -2,8 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:threads/model/post.module.dart';
 import 'package:threads/state/auth.state.dart';
 import 'package:threads/common/settings.dart';
+import 'package:threads/state/post.state.dart';
+import 'package:threads/widget/feedpost.dart';
 import 'edit.dart';
 
 class MyProfilePage extends StatefulWidget {
@@ -24,6 +27,7 @@ class _ProfilePageState extends State<MyProfilePage>
 
   @override
   Widget build(BuildContext context) {
+    var authState = Provider.of<AuthState>(context, listen: false);
     var state = Provider.of<AuthState>(context);
     return Scaffold(
         extendBodyBehindAppBar: true,
@@ -235,19 +239,23 @@ class _ProfilePageState extends State<MyProfilePage>
                     ),
                     Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 300,
+                        height: MediaQuery.of(context).size.height,
                         child:
                             TabBarView(controller: _tabController, children: [
-                          Container(
-                            height: 200,
-                            width: 200,
-                            alignment: Alignment.center,
-                            child: Text(
-                              "You haven't posted any threads yet.",
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 63, 63, 63)),
-                            ),
-                          ),
+                          Consumer<PostState>(builder: (context, state, child) {
+                            final List<PostModel>? list = state
+                                .getPostList(authState.userModel)!
+                                .toList();
+                            list!.where((element) =>
+                                element.key != authState.profileUserModel!.key);
+                            return ListView.builder(
+                                itemCount: list.length,
+                                itemBuilder: (context, index) {
+                                  return FeedPostWidget(
+                                    postModel: list[index],
+                                  );
+                                });
+                          }),
                           Container(
                             height: 100,
                             width: 200,
@@ -255,7 +263,7 @@ class _ProfilePageState extends State<MyProfilePage>
                             child: Text(
                               "You haven't posted any threads yet.",
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 63, 63, 63)),
+                                  color: Color.fromARGB(255, 84, 60, 60)),
                             ),
                           )
                         ]))
