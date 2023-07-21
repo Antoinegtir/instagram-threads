@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
-import 'package:threads/pages/composePost/composePost.dart';
+import 'package:threads/pages/composePost/post.dart';
 import 'package:threads/pages/notification/notification.dart';
 import 'package:threads/pages/search/search.dart';
 import 'package:threads/state/auth.state.dart';
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget tabPage(int index) {
     if (index == 0) return FeedPage();
     if (index == 1) return SearchPage();
-    if (index == 2) return ComposePostPage();
+    if (index == 2) return ComposePost();
     if (index == 3) return NotificationPage();
     if (index == 4) return MyProfilePage();
     return FeedPage();
