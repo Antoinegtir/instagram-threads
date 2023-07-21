@@ -69,9 +69,7 @@ class PostState extends AppStates {
     }
   }
 
-  List<PostModel>? getPostList(UserModel? userModel) {
-    final now = DateTime.now();
-
+  List<PostModel>? getPostListByFollower(UserModel? userModel) {
     if (userModel == null) {
       return null;
     }
@@ -79,9 +77,8 @@ class PostState extends AppStates {
     if (!isBusy && feedlist != null && feedlist!.isNotEmpty) {
       list = feedlist!.where((x) {
         if ((x.user!.userId == userModel.userId ||
-                (userModel.followingList != null &&
-                    userModel.followingList!.contains(x.user!.userId))) &&
-            now.difference(DateTime.parse(x.createdAt)).inHours < 24) {
+            (userModel.followingList != null &&
+                userModel.followingList!.contains(x.user!.userId)))) {
           return true;
         } else {
           return false;
@@ -94,7 +91,7 @@ class PostState extends AppStates {
     return list;
   }
 
-  List<PostModel>? getPostLists(UserModel? userModel) {
+  List<PostModel>? getPostList(UserModel? userModel) {
     if (userModel == null) {
       return null;
     }
@@ -122,7 +119,7 @@ class PostState extends AppStates {
   Future<bool> databaseInit() {
     try {
       if (_feedQuery == null) {
-        _feedQuery = kDatabase.child("posts");
+        _feedQuery = kDatabase.child("post");
         _feedQuery!.onChildAdded.listen(onPostAdded);
       }
       return Future.value(true);
@@ -136,7 +133,7 @@ class PostState extends AppStates {
       isBusy = true;
       _feedlist = null;
       notifyListeners();
-      kDatabase.child('posts').once().then((DatabaseEvent event) {
+      kDatabase.child('post').once().then((DatabaseEvent event) {
         final snapshot = event.snapshot;
         _feedlist = <PostModel>[];
         if (snapshot.value != null) {
