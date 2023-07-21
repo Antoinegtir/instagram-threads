@@ -23,8 +23,6 @@ class _SplashPageState extends State<SplashPage> {
 
   bool isAppUpdated = true;
 
-  /// Check if current app is updated app or not
-  /// If app is not updated then redirect user to update app screen
   void timer() async {
     if (isAppUpdated) {
       Future.delayed(const Duration(seconds: 1)).then((_) {
