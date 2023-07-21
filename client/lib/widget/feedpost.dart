@@ -1,5 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:threads/helper/utility.dart';
 import 'package:threads/model/post.module.dart';
 
 // ignore: must_be_immutable
@@ -12,23 +15,21 @@ class FeedPostWidget extends StatefulWidget {
 }
 
 class _FeedPostWidgetState extends State<FeedPostWidget> {
-  bool switcher = false;
-  void switcherFunc() {
-    setState(() {
-      switcher = !switcher;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
         color: Colors.black,
-        height: MediaQuery.of(context).size.height / 1.3,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              height: 20,
+              height: 0.2,
+              width: MediaQuery.of(context).size.width,
+              color: Colors.grey,
+            ),
+            Container(
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -42,88 +43,156 @@ class _FeedPostWidgetState extends State<FeedPostWidget> {
                           imageUrl:
                               widget.postModel.user!.profilePic.toString(),
                         ))),
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(
-                        text: widget.postModel.user!.displayName.toString() +
-                            "\n",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      TextSpan(
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
+                Text(
+                  widget.postModel.user!.displayName.toString(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width / 3,
                 ),
+                Text(
+                  Utility.getdob(widget.postModel.createdAt),
+                  style:
+                      TextStyle(color: const Color.fromARGB(255, 78, 78, 78)),
+                ),
                 Icon(Icons.more_horiz, color: Colors.white)
               ],
             ),
+            Padding(
+                padding: EdgeInsets.only(left: 55),
+                child: Text(
+                  widget.postModel.bio!,
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18),
+                )),
+            widget.postModel.imagePath == null
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 18,
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            width: 2,
+                            height: 30,
+                            color: const Color.fromARGB(255, 46, 46, 46),
+                          ),
+                          Container(
+                            height: 5,
+                          ),
+                          ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Container(
+                                  height: 15,
+                                  width: 15,
+                                  child: CachedNetworkImage(
+                                    imageUrl: widget.postModel.user!.profilePic
+                                        .toString(),
+                                  ))),
+                        ],
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(left: 20, right: 10),
+                          child: widget.postModel.imagePath == null
+                              ? SizedBox.shrink()
+                              : ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: CachedNetworkImage(
+                                      height: 300,
+                                      width: 330,
+                                      fit: BoxFit.cover,
+                                      imageUrl: widget.postModel.imagePath
+                                          .toString()))),
+                    ],
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        width: 10,
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            width: 2,
+                            height: 300,
+                            color: const Color.fromARGB(255, 46, 46, 46),
+                          ),
+                          Container(
+                            height: 5,
+                          ),
+                          ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Container(
+                                  height: 15,
+                                  width: 15,
+                                  child: CachedNetworkImage(
+                                    imageUrl: widget.postModel.user!.profilePic
+                                        .toString(),
+                                  ))),
+                        ],
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(left: 20, right: 10),
+                          child: widget.postModel.imagePath == null
+                              ? SizedBox.shrink()
+                              : ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: CachedNetworkImage(
+                                      height: 300,
+                                      width: 330,
+                                      fit: BoxFit.cover,
+                                      imageUrl: widget.postModel.imagePath
+                                          .toString()))),
+                    ],
+                  ),
             Container(
               height: 10,
             ),
-            GestureDetector(
-                onTap: switcherFunc,
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Container(
-                        height: MediaQuery.of(context).size.height / 1.63,
-                        width: MediaQuery.of(context).size.width,
-                        child: Stack(
-                          children: [
-                            FittedBox(
-                                fit: BoxFit.cover,
-                                child: SizedBox(
-                                    width: MediaQuery.of(context).size.width,
-                                    height: MediaQuery.of(context).size.height /
-                                        1.63,
-                                    child: CachedNetworkImage(
-                                        fit: BoxFit.cover,
-                                        imageUrl: switcher
-                                            ? widget.postModel.imageFrontPath
-                                                .toString()
-                                            : widget.postModel.imageBackPath
-                                                .toString()))),
-                            Padding(
-                                padding: EdgeInsets.all(20),
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Container(
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                6,
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                3.9,
-                                        child: CachedNetworkImage(
-                                            fit: BoxFit.cover,
-                                            imageUrl: !switcher
-                                                ? widget
-                                                    .postModel.imageFrontPath
-                                                    .toString()
-                                                : widget.postModel.imageBackPath
-                                                    .toString())))),
-                          ],
-                        )))),
-            Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Text(
-                  "Antoine Gonthier",
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w500),
-                  textAlign: TextAlign.left,
-                ))
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  width: 50,
+                ),
+                Icon(
+                  Iconsax.heart,
+                  size: 20,
+                ),
+                Container(
+                  width: 10,
+                ),
+                Icon(
+                  Iconsax.share,
+                  size: 20,
+                ),
+                Container(
+                  width: 10,
+                ),
+                Icon(
+                  Iconsax.repeat,
+                  size: 20,
+                ),
+                Container(
+                  width: 10,
+                ),
+                Icon(
+                  Iconsax.send_2,
+                  size: 20,
+                ),
+              ],
+            ),
+            Container(
+              height: 15,
+            ),
           ],
-          crossAxisAlignment: CrossAxisAlignment.start,
         ));
   }
 }
