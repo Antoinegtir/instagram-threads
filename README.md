@@ -26,9 +26,9 @@ Profile Page         |  Search Page       |   Notification Page               | 
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/profile.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/search.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/notification.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/edit.png?raw=true)|
 
-Settings Page         |  Post Page       |   Crop Page               |  Edit Page
+Settings Page         |  Post Page       |   Crop Page               |  Feed Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/settings.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/post.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/crop.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/edit.png?raw=true)|
+![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/settings.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/post.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/crop.png?raw=true)|![](https://github.com/Antoinegtir/instagram-threads/blob/main/screenshot/feed.png?raw=true)|
 
 ## Language & Tools used:
 
