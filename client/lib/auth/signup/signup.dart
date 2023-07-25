@@ -218,7 +218,7 @@ class _SignupState extends State<Signup> {
                                 ? FileImage(_image!)
                                 : CachedNetworkImageProvider(
                                     scale: 10,
-                                    "https://firebasestorage.googleapis.com/v0/b/threads-instagram.appspot.com/o/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202023-07-09%20at%2021.28.44.jpeg?alt=media&token=9ba68508-7555-4b64-824c-e17ee14753a3",
+                                    "https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg",
                                   ) as ImageProvider)),
                       )
                     ],
