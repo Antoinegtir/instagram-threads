@@ -379,6 +379,4 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
       });
     }
   }
-
-  void _processCameraImage(CameraImage image) {}
 }
