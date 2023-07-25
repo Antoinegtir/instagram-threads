@@ -1,12 +1,9 @@
 // ignore_for_file: unnecessary_null_comparison, unused_element
-
 import 'dart:io';
-import 'dart:ui';
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import 'package:threads/model/post.module.dart';
 import 'package:threads/model/user.module.dart';
@@ -15,7 +12,6 @@ import 'package:threads/state/auth.state.dart';
 import 'package:threads/state/compose.state.dart';
 import 'package:threads/state/post.state.dart';
 import 'package:threads/state/search.state.dart';
-import 'package:threads/widget/custom/rippleButton.dart';
 import 'package:threads/widget/custom/title_text.dart';
 
 class ComposePost extends StatefulWidget {
