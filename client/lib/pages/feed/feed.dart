@@ -1,10 +1,7 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'package:threads/model/post.module.dart';
 import 'package:threads/state/auth.state.dart';
 import 'package:threads/state/post.state.dart';
 import 'package:threads/widget/feedpost.dart';
@@ -18,30 +15,9 @@ class FeedPage extends StatefulWidget {
 
 class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin {
   ScrollController _scrollController = ScrollController();
-  bool _isScrolledDown = false;
-  void _scrollListener() {
-    if (_scrollController.position.userScrollDirection ==
-        ScrollDirection.reverse) {
-      setState(() {
-        _isScrolledDown = true;
-      });
-    } else if (_scrollController.position.userScrollDirection ==
-        ScrollDirection.forward) {
-      setState(() {
-        _isScrolledDown = false;
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    _scrollController.addListener(_scrollListener);
-    super.initState();
-  }
 
   @override
   void dispose() {
-    _scrollController.removeListener(_scrollListener);
     _scrollController.dispose();
     super.dispose();
   }
