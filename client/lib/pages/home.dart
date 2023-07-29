@@ -9,6 +9,7 @@ import 'package:threads/state/auth.state.dart';
 import 'package:threads/state/post.state.dart';
 import 'package:threads/state/search.state.dart';
 import 'package:threads/pages/profile/myprofile.dart';
+import 'camera/camera.dart';
 import 'feed/feed.dart';
 
 class HomePage extends StatefulWidget {
@@ -104,6 +105,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: CameraPage(),
         extendBody: true,
         bottomNavigationBar: bottomNavBar(),
         extendBodyBehindAppBar: true,
