@@ -92,36 +92,91 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: Padding(
-            padding: EdgeInsets.only(bottom: 50),
-            child: GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(
-                  Icons.keyboard_arrow_down_rounded,
-                  size: 35,
-                ))),
-        centerTitle: true,
-        toolbarHeight: 78,
         elevation: 0,
-        title: Stack(
-          alignment: Alignment.center,
-          children: [
-            Padding(
-                padding: EdgeInsets.only(bottom: 50),
-                child: Image.asset(
-                  "assets/threadss.png",
-                  height: 130,
-                )),
-          ],
-        ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 140,
+        flexibleSpace: Container(
+            height: 300,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                    onTap: _cameraIndex == 1
+                        ? () {
+                            HapticFeedback.heavyImpact();
+                          }
+                        : _flashEnable,
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          color: Colors.white,
+                          child: Icon(
+                            flashEnabled
+                                ? Iconsax.flash_15
+                                : Iconsax.flash_slash5,
+                            color: Colors.black,
+                            size: 25,
+                          ),
+                        ))),
+                Container(
+                  width: 50,
+                ),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          color: Colors.white,
+                          child: Icon(
+                            flashEnabled ? Iconsax.home : Iconsax.home,
+                            color: Colors.black,
+                            size: 25,
+                          ),
+                        ))),
+                Container(
+                  width: 50,
+                ),
+                GestureDetector(
+                  onTap: _switchFrontCamera,
+                  child: AnimatedBuilder(
+                    animation: rotationController!,
+                    builder: (context, child) {
+                      return Transform.rotate(
+                        angle: rotationController!.value * 2.0 * pi,
+                        child: child,
+                      );
+                    },
+                    child: Transform(
+                        transform: Matrix4.identity()..scale(-1.0, 1.0, -1.0),
+                        alignment: Alignment.center,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              color: Colors.white,
+                              child: Icon(
+                                Icons.loop_rounded,
+                                color: Colors.black,
+                                size: 27,
+                              ),
+                            ))),
+                  ),
+                )
+              ],
+            )),
+        leading: SizedBox.shrink(),
       ),
       backgroundColor: Colors.black,
       body: _body(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
@@ -134,13 +189,14 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
 
     if (scale < 1) scale = 1 / scale;
 
-    return Column(
+    return Stack(
+      alignment: Alignment.bottomCenter,
       children: [
         ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Container(
               color: Colors.black,
-              height: MediaQuery.of(context).size.height / 1.63,
+              height: MediaQuery.of(context).size.height / 1,
               width: MediaQuery.of(context).size.width / 1,
               child: _changingCameraLens
                   ? Container()
@@ -180,12 +236,13 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
                                                   top: MediaQuery.of(context)
                                                           .size
                                                           .height /
-                                                      0.95),
+                                                      1.1),
                                               child: Container(
                                                 height: 65,
                                                 width: 65,
                                                 decoration: BoxDecoration(
-                                                  color: Colors.black,
+                                                  color: const Color.fromARGB(
+                                                      255, 88, 88, 88),
                                                   shape: BoxShape.circle,
                                                 ),
                                                 alignment: Alignment.center,
@@ -201,63 +258,23 @@ class _CameraPageState extends State<CameraPage> with TickerProviderStateMixin {
                                 ],
                               )))),
             )),
-        Container(
-          height: 40,
-        ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              onTap: _cameraIndex == 1
-                  ? () {
-                      HapticFeedback.heavyImpact();
-                    }
-                  : _flashEnable,
-              child: Icon(
-                flashEnabled ? Iconsax.flash_15 : Iconsax.flash_slash5,
-                color: Colors.white,
-                size: 35,
-              ),
-            ),
-            Container(
-              width: 25,
-            ),
-            GestureDetector(
-                onTap: _takePicture,
-                child: Container(
-                    height: 80,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white, width: 6),
-                      shape: BoxShape.circle,
-                    ))),
-            Container(
-              width: 25,
-            ),
-            GestureDetector(
-              onTap: _switchFrontCamera,
-              child: AnimatedBuilder(
-                animation: rotationController!,
-                builder: (context, child) {
-                  return Transform.rotate(
-                    angle: rotationController!.value * 2.0 * pi,
-                    child: child,
-                  );
-                },
-                child: Transform(
-                  transform: Matrix4.identity()..scale(-1.0, 1.0, -1.0),
-                  alignment: Alignment.center,
-                  child: Icon(
-                    Icons.loop_rounded,
-                    color: Colors.white,
-                    size: 37,
-                  ),
-                ),
-              ),
-            )
-          ],
-        )
+        Padding(
+            padding: EdgeInsets.only(bottom: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                    onTap: _takePicture,
+                    child: Container(
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 213, 213, 213),
+                          border: Border.all(color: Colors.white, width: 5),
+                          shape: BoxShape.circle,
+                        ))),
+              ],
+            ))
       ],
     );
   }
