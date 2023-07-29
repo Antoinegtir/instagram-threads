@@ -87,6 +87,10 @@ class _ComposePostReplyPageState extends State<ComposePost> {
       postId = await state.createPost(postModel);
     }
     postModel.key = postId;
+    _textEditingController.clear();
+    setState(() {
+      _file = null;
+    });
   }
 
   Widget _entry(
@@ -201,8 +205,7 @@ class _ComposePostReplyPageState extends State<ComposePost> {
                             Padding(
                                 padding: EdgeInsets.only(left: 15, top: 5),
                                 child: GestureDetector(
-                                    onTap: () {
-                                    },
+                                    onTap: () {},
                                     child: Text("Cancel",
                                         style: TextStyle(
                                             color: Colors.white,
@@ -312,13 +315,12 @@ class _ComposePostReplyPageState extends State<ComposePost> {
                                           onImageIconSelcted:
                                               _onImageIconSelcted,
                                         ),
+                                        SizedBox(
+                                          height: 4,
+                                        ),
                                         GestureDetector(
                                             onTap: () {
                                               HapticFeedback.heavyImpact();
-                                              setState(() {
-                                                _file = null;
-                                              });
-                                              _textEditingController.clear();
                                               _submitButton();
                                             },
                                             child: Text(
