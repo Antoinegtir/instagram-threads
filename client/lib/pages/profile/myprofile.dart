@@ -96,17 +96,6 @@ class _ProfilePageState extends State<MyProfilePage>
                                 Container(
                                   width: 5,
                                 ),
-                                Container(
-                                  height: 20,
-                                  decoration: BoxDecoration(
-                                      color: Color.fromARGB(255, 19, 19, 19),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  padding: EdgeInsets.all(2),
-                                  child: Text(
-                                    state.profileUserModel?.link.toString() ??
-                                        "",
-                                  ),
-                                )
                               ],
                             )
                           ],
@@ -139,6 +128,16 @@ class _ProfilePageState extends State<MyProfilePage>
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        Container(
+                          height: 20,
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 19, 19, 19),
+                              borderRadius: BorderRadius.circular(10)),
+                          padding: EdgeInsets.all(2),
+                          child: Text(
+                            state.profileUserModel?.link.toString() ?? "",
+                          ),
+                        ),
                         GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -149,6 +148,7 @@ class _ProfilePageState extends State<MyProfilePage>
                             child: Text(
                               "${state.profileUserModel?.bio ?? ""}",
                               style: TextStyle(
+                                  overflow: TextOverflow.ellipsis,
                                   color: Colors.white,
                                   fontSize: 15,
                                   fontWeight: FontWeight.w400),
@@ -170,7 +170,7 @@ class _ProfilePageState extends State<MyProfilePage>
                             },
                             child: Container(
                                 height: 40,
-                                width: 170,
+                                width: 165,
                                 decoration: BoxDecoration(
                                   color: Colors.black,
                                   borderRadius: BorderRadius.circular(8),
@@ -186,7 +186,7 @@ class _ProfilePageState extends State<MyProfilePage>
                         ),
                         Container(
                             height: 40,
-                            width: 170,
+                            width: 165,
                             decoration: BoxDecoration(
                               color: Colors.black,
                               borderRadius: BorderRadius.circular(8),

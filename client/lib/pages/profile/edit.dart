@@ -125,7 +125,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           backgroundColor: Colors.transparent,
         ),
         body: Padding(
-            padding: EdgeInsets.only(top: 200),
+            padding: EdgeInsets.only(top: 100),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -403,6 +403,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
       profilePic: state.userModel!.profilePic,
     );
     model.bio = _bio.text;
+    model.displayName = _displayName.text;
+    model.link = _link.text;
     state.updateUserProfile(
       model,
       image: _image,
