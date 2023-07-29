@@ -37,7 +37,7 @@ class _NamePageState extends State<NamePage> {
                   child: Stack(
                     children: [
                       Image.asset(
-                        "assets/signin.jpg",
+                        "assets/threads.png",
                         height: MediaQuery.of(context).size.height / 1.5,
                         fit: BoxFit.fitWidth,
                         width: MediaQuery.of(context).size.width,
