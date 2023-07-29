@@ -42,6 +42,9 @@ class _FeedPostWidgetState extends State<FeedPostWidget> {
                           imageUrl:
                               widget.postModel.user!.profilePic.toString(),
                         ))),
+                Container(
+                  width: 5,
+                ),
                 Text(
                   widget.postModel.user!.displayName.toString(),
                   style: TextStyle(
@@ -50,12 +53,15 @@ class _FeedPostWidgetState extends State<FeedPostWidget> {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width / 3,
+                  width: MediaQuery.of(context).size.width / 4,
                 ),
                 Text(
                   Utility.getdob(widget.postModel.createdAt),
                   style:
                       TextStyle(color: const Color.fromARGB(255, 78, 78, 78)),
+                ),
+                Container(
+                  width: 5,
                 ),
                 Icon(Icons.more_horiz, color: Colors.white)
               ],
@@ -74,7 +80,7 @@ class _FeedPostWidgetState extends State<FeedPostWidget> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        width: 18,
+                        width: 12,
                       ),
                       Column(
                         children: [
@@ -139,14 +145,14 @@ class _FeedPostWidgetState extends State<FeedPostWidget> {
                         ],
                       ),
                       Padding(
-                          padding: EdgeInsets.only(left: 20, right: 10),
+                          padding: EdgeInsets.only(left: 48, right: 10),
                           child: widget.postModel.imagePath == null
                               ? SizedBox.shrink()
                               : ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
                                   child: CachedNetworkImage(
                                       height: 300,
-                                      width: 330,
+                                      width: 290,
                                       fit: BoxFit.cover,
                                       imageUrl: widget.postModel.imagePath
                                           .toString()))),
