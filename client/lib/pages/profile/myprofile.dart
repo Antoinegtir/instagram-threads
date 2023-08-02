@@ -243,16 +243,21 @@ class _ProfilePageState extends State<MyProfilePage>
                         child:
                             TabBarView(controller: _tabController, children: [
                           Consumer<PostState>(builder: (context, state, child) {
-                            final List<PostModel>? list = state
+                            List<PostModel>? list = state
                                 .getPostList(authState.userModel)!
                                 .toList();
-                            list!.where((element) =>
-                                element.key != authState.profileUserModel!.key);
+                            if (state.feedlist != null &&
+                                state.feedlist!.isNotEmpty) {
+                              list = state.feedlist!
+                                  .where(
+                                      (x) => x.user!.userId == authState.userId)
+                                  .toList();
+                            }
                             return ListView.builder(
                                 itemCount: list.length,
                                 itemBuilder: (context, index) {
                                   return FeedPostWidget(
-                                    postModel: list[index],
+                                    postModel: list![index],
                                   );
                                 });
                           }),
